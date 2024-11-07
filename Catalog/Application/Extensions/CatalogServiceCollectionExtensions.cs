@@ -1,4 +1,5 @@
-﻿using Catalog.Application.UseCases;
+﻿using Catalog.Application.Events;
+using Catalog.Application.UseCases;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,13 @@ namespace Catalog.Application.Extensions
         public static IServiceCollection AddCatalogUseCases(this IServiceCollection services)
         {
             services.AddScoped<INewBookUseCase, NewBookUseCase>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddCatalogMediatorServices(this IServiceCollection services)
+        {
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(LoanCreatedListener).Assembly));
 
             return services;
         }

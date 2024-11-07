@@ -11,5 +11,12 @@ namespace Lending.Application.Extensions
 
             return services;
         }
+
+        public static IServiceCollection AddLendingMediatorServices(this IServiceCollection services)
+        {
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(NewLoanUseCase).Assembly));
+
+            return services;
+        }
     }
 }

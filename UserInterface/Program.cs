@@ -13,6 +13,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCatalogUseCases();
 builder.Services.AddLendingUseCases();
 
+builder.Services.AddCatalogMediatorServices();
+builder.Services.AddLendingMediatorServices();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
