@@ -1,11 +1,8 @@
-﻿using Catalog.Application.Events;
+﻿using Catalog.Application.Adapter;
+using Catalog.Application.Events;
 using Catalog.Application.UseCases;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Shared.Ports;
 
 namespace Catalog.Application.Extensions
 {
@@ -14,6 +11,8 @@ namespace Catalog.Application.Extensions
         public static IServiceCollection AddCatalogUseCases(this IServiceCollection services)
         {
             services.AddScoped<INewBookUseCase, NewBookUseCase>();
+            services.AddScoped<INewCopyUseCase, NewCopyUseCase>();
+            services.AddScoped<ICopyServicePort, CopyServiceAdapter>();
 
             return services;
         }

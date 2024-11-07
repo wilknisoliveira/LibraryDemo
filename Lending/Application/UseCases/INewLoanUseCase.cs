@@ -8,6 +8,6 @@ namespace Lending.Application.UseCases
 {
     public interface INewLoanUseCase
     {
-        Task Execute(Guid copyId, Guid userId);
+        Task Execute(Guid copyId, Guid userId, CancellationToken cancellationToken);
     }
 }

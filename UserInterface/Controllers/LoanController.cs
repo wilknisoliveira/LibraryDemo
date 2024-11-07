@@ -16,12 +16,12 @@ namespace UserInterface.Controllers
 
         [HttpPost("{copyId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult CreateLoan([FromRoute] Guid copyId)
+        public async Task<IActionResult> CreateLoan([FromRoute] Guid copyId, CancellationToken cancellationToken = default)
         {
             //GetUserId
             Guid userId = Guid.NewGuid();
 
-            _newLoanUseCase.Execute(copyId, userId);
+            await _newLoanUseCase.Execute(copyId, userId, cancellationToken);
 
             return Ok();
         }
