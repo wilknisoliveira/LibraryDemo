@@ -25,5 +25,15 @@ namespace Catalog.Domain
             CreatedAt = DateTimeOffset.Now;
             UpdatedAt = DateTimeOffset.Now;
         }
+
+        public void Unavailable()
+        {
+            IsAvailable = false;
+        }
+
+        public void Available()
+        {
+            IsAvailable = true;
+        }
     }
 }
