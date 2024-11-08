@@ -9,14 +9,14 @@ The application business idea started with Spring I/O Talk by Maciej Walkowiak (
 To structure the folders, I used a similar organization from Explicit Architecture (https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/), adapting somethings to specific necessities. The result is:
 <img style="width:400px" src="Assets\Architecture.png" alt="Architecture">
 
-The most important ideia is decouple the components. To enable the comunication between these components was used two mechanism:
+The most important idea is decoupling the components. To enable communication between these components I used two mechanisms:
 - Events to target a service outside the event publisher component.
-	- To make it happen, the MediatR was implement to publish and listening the events;
+	- To make it happen, the MediatR was implemented to publish and listening the events;
 	<img style="width:400px" src="Assets\Mediator.png" alt="Mediator">
-- Dependency Inversion Principle from SOLID to get informations from other component;
+- Dependency Inversion Principle from SOLID to get information from another component;
 	<img style="width:400px" src="Assets\DependencyInversion.png" alt="DependencyInversion">
 
-So, was necessity the used of a Shared component (idea from Expicit Achitecture) to available the two approachs presented above.
+So, it was necessary to create a Shared component (idea from Expicit Architecture) to enable the two approaches presented above.
 
  ## Author
  Wilknis Deyvis
